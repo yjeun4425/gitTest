@@ -1,0 +1,43 @@
+//file read
+		File file = new File("파일경로");
+		BufferedReader reader = null;
+		try {
+			reader = new BufferedReader(new FileReader(file));
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		String line = null;
+		while ((line = reader.readLine()) != null) {
+
+			System.out.println(line);
+
+		}
+		reader.close();
+		
+		
+		
+		//file write
+		
+		File file2 = new File("파일경로");
+		FileWriter writer = null;
+		
+		try {
+			writer = new FileWriter(file2,false);
+			String result = "결과문장";
+			writer.write(result);
+			writer.flush();
+		
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if(writer != null) {
+					writer.close();
+				}
+			}catch(IOException e) {
+				e.printStackTrace();
+			}
+		}
+		
